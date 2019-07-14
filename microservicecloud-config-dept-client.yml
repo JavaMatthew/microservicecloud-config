@@ -8,7 +8,7 @@ server:
 spring:
   profiles: dev
   application:
-    name: microservicecloud-dept
+    name: microservicecloud-config-dept-client
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
@@ -32,20 +32,20 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
       #http://localhost:7001/eureka
   instance:
-    instance-id: microservicecloud-dept8001-hystrix   #自定义服务名称信息
+    instance-id: dept-8001.com  #自定义服务名称信息
     prefer-ip-address: true                       #访问路径可以显示ip地址
 info:
   app.name: matthew-microservicecloud
   company.name: www.matthew.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
 ---
 server: 
   port: 8001
 spring:
   profiles: test
   application:
-    name: microservicecloud-dept
+    name: microservicecloud-config-dept-client
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
@@ -69,10 +69,10 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
       #http://localhost:7001/eureka
   instance:
-    instance-id: microservicecloud-dept8001-hystrix   #自定义服务名称信息
+    instance-id: dept-8001.com   #自定义服务名称信息
     prefer-ip-address: true                       #访问路径可以显示ip地址
 info:
   app.name: matthew-microservicecloud
   company.name: www.matthew.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
